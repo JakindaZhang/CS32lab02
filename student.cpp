@@ -2,9 +2,9 @@
 #include <string>
 #include <cstring>
 
-Student::Student(const char * const name, int perm) {
-  this->setName(name);
-  this->setPerm(perm);
+Student::Student(const char * const name, int perm):name(NULL){
+  setName(name);
+  setPerm(perm);
 }
 
 int Student::getPerm() const {
@@ -20,18 +20,19 @@ void Student::setPerm(const int permNumber) {
 }
 
 void Student::setName(const char * const name) {
+  delete[] this -> name;
   this->name = new char[strlen(name)+1];
   strcpy(this->name,name);
 }
 
 
-Student::Student(const Student &orig) {
-  this->setName(orig.getName());
-  this->setPerm(orig.getPerm());
+Student::Student(const Student &orig):name(NULL){
+ setName(orig.getName());
+ setPerm(orig.getPerm());
 }
 
 Student::~Student() {
-
+  delete[] name;
 }
 
 Student & Student::operator=(const Student &right) {
@@ -44,8 +45,8 @@ Student & Student::operator=(const Student &right) {
 
   // TODO... Here is where there is code missing that you need to 
   // fill in...
-    this->setName(right.getName());
-    this->setPerm(right.getPerm());
+    setName(right.getName());
+    setPerm(right.getPerm());
 
 
   // KEEP THE CODE BELOW THIS LINE
