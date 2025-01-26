@@ -51,19 +51,21 @@ StudentRoll::StudentRoll(const StudentRoll &orig) {
   Node* temp = orig.head;
   while (temp!=NULL){
     this->insertAtTail(*temp->s);
+    temp = temp->next;
   }
 }
 
 StudentRoll::~StudentRoll() {
   // STUB
-  Node* temp = head;
-  while(temp!=NULL){
-    Node* temp2 = temp;
-    temp = temp->next;
-    delete temp2->s;
-    delete temp2;
+  Node* current = head;
+  while(current != nullptr){
+    Node* NodeToDelete = current;
+    current = current -> next;
+    delete NodeToDelete -> s;
+    delete NodeToDelete;
   }
-  head = tail = NULL;
+  head = nullptr;
+  tail = nullptr;
 }
 
 StudentRoll & StudentRoll::operator =(const StudentRoll &right ) {

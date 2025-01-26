@@ -32,7 +32,7 @@ Student::Student(const Student &orig):name(NULL){
 }
 
 Student::~Student() {
-  delete[] name;
+  delete[] this->name;
 }
 
 Student & Student::operator=(const Student &right) {
