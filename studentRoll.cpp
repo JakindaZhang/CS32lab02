@@ -57,12 +57,12 @@ StudentRoll::StudentRoll(const StudentRoll &orig) {
 
 StudentRoll::~StudentRoll() {
   // STUB
-  Node* current = head;
-  while(current != nullptr){
-    Node* NodeToDelete = current;
-    current = current -> next;
-    delete NodeToDelete -> s;
-    delete NodeToDelete;
+  Node* now = head;
+  while(now != nullptr){
+    Node* temp = now;
+    now = now -> next;
+    delete temp -> s;
+    delete temp;
   }
   head = nullptr;
   tail = nullptr;
