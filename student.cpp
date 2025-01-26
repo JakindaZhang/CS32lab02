@@ -56,6 +56,7 @@ Student & Student::operator=(const Student &right) {
 
 std::string Student::toString() const {
   std::string result = "";
+  result += "[";
   if (name != NULL) {
     result += name;
   } else {
@@ -63,6 +64,7 @@ std::string Student::toString() const {
   }
   result += ",";
   result += std::to_string(perm);
+  result += "]";
   return result;
 }
 
